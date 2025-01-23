@@ -1,0 +1,27 @@
+import requests
+import json
+
+# Define the endpoint URL and your API key
+endpoint_url = "https://translation.googleapis.com/language/translate/v2"
+api_key = "AIzaSyDL_KeGy47oKjZIajP380XXwvAtQJHM8D0"
+
+# Define the payload for the POST request
+data = {
+    "q": "Welcome everyone. I hope you are enjoying the workshop.",
+    "source": "en",
+    "target": "es",
+    "format": "text"
+}
+
+# Make the POST request
+headers = {"Content-Type": "application/json"}
+response = requests.post(f"{endpoint_url}?key={api_key}", data=json.dumps(data), headers=headers)
+
+# Parse and print the response
+response_data = response.json()
+
+if response.status_code == 200:
+    translated_text = response_data["data"]["translations"][0]["translatedText"]
+    print(translated_text)
+else:
+    print(f"Request failed with status code {response.status_code}")

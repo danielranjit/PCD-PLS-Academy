@@ -1,0 +1,8 @@
+curl -X POST -H "Content-Type: application/json; charset=utf-8" \
+    -d \ '{
+	    "q":"Welcome everyone. I hope you are enjoying the workshop,",
+	    "source":"en",
+	    "target":"es",
+	    "format":"text"
+	   }' \
+    "https://translation.googleapis.com/language/translate/v2?key=AIzaSyDL_KeGy47oKjZIajP380XXwvAtQJHM8D0"
